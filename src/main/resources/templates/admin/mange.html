@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta>
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>
+		This is Admin Page <a th:href="@{/logout}">Log Out</a>
+	</h1>
+
+	<table>
+		<tr>
+			<th>ID</th>
+			<th>Full Name</th>
+			<th>Username</th>
+			<th>Password</th>
+			<th>Role</th>
+		</tr>
+
+		<th:block th:each="a : ${accounts}">
+			<tr>
+				<td th:text="${a.getId()}"></td>
+				<td th:text="${a.getFullName()}"></td>
+				<td th:text="${a.getUsername()}"></td>
+				<td th:text="${a.getPassword()}"></td>
+				<td th:text="${a.getRole()}"></td>
+			</tr>
+		</th:block>
+	</table>
+
+	<hr />
+
+	<form action="/delete" method='POST'>
+		<h4>DELETE ACCOUNT</h4>
+		<label>Delete ID:</label> <input type="text" id="fname" name="delID"><br>
+		<input type="submit" value="DELETE"> <br />
+		<h4 th:text="${msg}"></h4>
+	</form>
+
+	<hr />
+
+	<form action="/update" method='POST'>
+		<h4>UPDATE ACCOUNT</h4>
+		<label>Chọn ID:</label> <input type="text" id="fname" name="id"><br>
+		<label>Full Name:</label> <input type="text" id="fname" name="fulname"><br>
+		<label>Username:</label> <input type="text" id="fname" name="username"><br>
+		<label>Password:</label> <input type="text" id="fname" name="password"><br>
+		<label>Role:</label> <input type="text" id="fname" name="role"><br>
+		<br /> <input type="submit" value="UPDATE"> <br />
+		<h4 th:text="${msg1}"></h4>
+	</form>
+
+	<hr />
+
+	<form action="/create" method='POST'>
+		<h4>CREATE NEW ACCOUNT</h4>
+		<label>Full name:</label> <input type="text" id="fname"
+			name="fullname"><br>
+		<label>Username:</label>
+		<input type="text" id="fname" name="username"><br> <label>Password:</label>
+		<input type="text" id="fname" name="password"><br> <label>Role:</label>
+		<input type="text" id="fname" name="role"><br> <br /> 
+		<input type="submit" value="CREATE"> <br />
+			<h4 th:text="${msg2}"></h4>
+	</form>
+
+
+</body>
+</html>

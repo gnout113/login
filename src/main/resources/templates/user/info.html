@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<table>
+		<tr>
+			<th>Id:</th>
+			<td th:text="${user.getId()}"></td>
+		</tr>
+		<tr>
+			<th>Full Name:</th>
+			<td th:text="${user.getFullName()}"></td>
+		</tr>
+
+		<tr>
+			<th>Username:</th>
+			<td th:text="${user.getUsername()}"></td>
+		</tr>
+		
+		<tr>
+			<th>Password:</th>
+			<td th:text="${user.getPassword()}"></td>
+		</tr>
+	</table>
+	<hr/>
+	<a th:href="@{/logout}">Log Out</a>
+</body>
+</html>
